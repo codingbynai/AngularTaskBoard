@@ -1,0 +1,9 @@
+<div class="container py-4">
+    <h1>Task Board</h1>
+    <hr>
+    <div class="d-flex flex-column flex-md-row gap-3 mt-5">
+        <app-task-column class="flex-grow-1" [title]="toDo"></app-task-column>
+        <app-task-column class="flex-grow-1" [title]="inProgress"></app-task-column>
+        <app-task-column class="flex-grow-1"[title]="done"></app-task-column>
+    </div>
+</div>

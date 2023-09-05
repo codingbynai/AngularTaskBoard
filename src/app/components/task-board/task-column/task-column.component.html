@@ -1,0 +1,25 @@
+<section class="column">
+  <div class="header">
+    <div class="d-flex gap-2">
+      <p [ngClass]="titleColor()" class="title">{{ title }}</p>
+      <span class="count">0</span>
+    </div>
+    <p>+</p>
+  </div>
+  <div class="tasks">
+      <div
+        cdkDropList
+        [id]="'cdk-drop-list-' + i"
+        [ngClass]="taskList()"
+        [cdkDropListData]="tasks"
+        [cdkDropListConnectedTo]="getConnectedListIds()"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div class="example-box" *ngFor="let item of tasks" cdkDrag>
+          <span>{{ item }}</span>
+        </div>
+    </div>
+        <div class="task">+ New</div>
+    </div>
+</section>
