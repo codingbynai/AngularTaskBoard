@@ -26,7 +26,7 @@ export class TaskColumnComponent implements OnInit {
   getConnectedListIds(): string[] {
     return ['cdk-drop-list-0', 'cdk-drop-list-1', 'cdk-drop-list-2'];
   }
-  
+
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -43,11 +43,24 @@ export class TaskColumnComponent implements OnInit {
   titleColor(): string {
     switch (this.title) {
       case 'To Do':
-        return 'yellow-title #todo';
+        return 'yellow-title';
       case 'In Progress':
         return 'blue-title';
       case 'Done':
         return 'green-title';
+      default:
+        return '';
+    }
+  }
+
+  bgColor(): string {
+    switch (this.title) {
+      case 'To Do':
+        return 'yellow-bg';
+      case 'In Progress':
+        return 'blue-bg';
+      case 'Done':
+        return 'green-bg';
       default:
         return '';
     }

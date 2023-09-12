@@ -1,6 +1,13 @@
 .column {
     height: auto;
     font-size: .9rem;
+    background-color: #161515;
+    padding: 15px;
+    min-height: 125px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .header{
@@ -21,20 +28,61 @@
     background-color: rgba(255, 255, 0, .3);
 }
 
+.yellow-bg {
+    background-color: rgba(255, 255, 0, .02);
+}
+
 .blue-title {
     background-color: rgba(106, 106, 248, 0.3);
 }
 
-.green-title {  
-    background-color: rgba(48, 224, 48, 0.3);
+.blue-bg {
+    background-color: rgba(106, 106, 248, 0.02);
 }
 
-.example-box span {
-    background-color: rgba(88, 91, 94, 0.1);
+.green-title {  
+    background-color: rgba(48, 224, 48, .3);
+}
+
+.green-bg {  
+    background-color: rgba(48, 224, 48, .02);
+}
+
+.example-box .content {
+    background-color: rgba(88, 91, 94, .15);
     padding: 7px;
     border-radius: 5px;
     margin: 2px 0px;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.2s ease-in;
 }
+
+.example-box .content:hover {
+    background-color: rgba(88, 91, 94, .25);
+}
+
+span i {
+    padding: 7px;
+    background-color: transparent;
+    font-size: .7rem;
+    margin-left: 5px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: transparent;
+    transition: all 0.2s ease-in;
+}
+
+.example-box:hover span i {
+    background-color: #191919b7;
+    color: rgb(144, 147, 150);
+}
+
+.example-box:hover span i:hover{
+    background-color: #19191948;
+    color: rgb(144, 147, 150);
+}
+
 
 .task {
     padding: 7px;
@@ -42,6 +90,11 @@
     margin: 2px 0px;
     color: rgba(88, 91, 94, 0.9);
     font-weight: bold;
+    transition: all 0.2s ease-in;
+}
+
+.example-placeholder {
+    height: 1px;
 }
 
 .count, p {
@@ -66,6 +119,10 @@
 
  .example-box span:active {
     cursor: grab;
+}
+
+.ti-plus {
+    font-size: .7rem;
 }
 
 .cdk-drag-preview {

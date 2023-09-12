@@ -1,9 +1,11 @@
-<div class="container py-4">
-    <h1>Task Board</h1>
-    <hr>
-    <div class="d-flex flex-column flex-md-row gap-3 mt-5">
-        <app-task-column class="flex-grow-1" [title]="toDo"></app-task-column>
-        <app-task-column class="flex-grow-1" [title]="inProgress"></app-task-column>
-        <app-task-column class="flex-grow-1"[title]="done"></app-task-column>
+<div class="container py-5">
+    <div class="header d-flex w-100 h-100 gap-2 align-items-center">
+        <img src="../../../assets/images/checked.webp" style="width: 45px; opacity: .9;" alt="checked">
+        <h1 class="title">Task Board</h1>
+    </div>
+    <div class="d-flex flex-column flex-md-row gap-3 mt-4">
+        <app-task-column class="flex-grow-1 w-100" [title]="toDo"></app-task-column>
+        <app-task-column class="flex-grow-1 w-100" [title]="inProgress"></app-task-column>
+        <app-task-column class="flex-grow-1 w-100"[title]="done"></app-task-column>
     </div>
 </div>
