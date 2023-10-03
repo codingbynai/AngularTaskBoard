@@ -4,8 +4,8 @@
         <h1 class="title">Task Board</h1>
     </div>
     <div class="d-flex flex-column flex-md-row gap-3 mt-4">
-        <app-task-column class="flex-grow-1 w-100" [title]="toDo"></app-task-column>
-        <app-task-column class="flex-grow-1 w-100" [title]="inProgress"></app-task-column>
-        <app-task-column class="flex-grow-1 w-100"[title]="done"></app-task-column>
+        <app-task-column class="flex-grow-1 w-100" [title]="toDo" [count]="toDoCount"></app-task-column>
+        <app-task-column class="flex-grow-1 w-100" [title]="inProgress" [count]="inProgressCount"></app-task-column>
+        <app-task-column class="flex-grow-1 w-100" [title]="done" [count]="doneCount"></app-task-column>
     </div>
 </div>

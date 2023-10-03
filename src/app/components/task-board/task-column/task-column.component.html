@@ -2,27 +2,25 @@
   <div class="header">
     <div class="d-flex gap-2">
       <p [ngClass]="titleColor()" class="title">{{ title }}</p>
-      <span class="count">0</span>
+      <span class="count" #countElement>{{ count }}</span>
     </div>
     <p class="ti-plus fw-bold"></p>
   </div>
   <div class="tasks">
       <div
         cdkDropList
-        id = "cdk-drop-list-{{i}}"
-        [ngClass]="taskList()"
-        [cdkDropListData]="tasks"
+        [cdkDropListData]="taskList()"
         [cdkDropListConnectedTo]="['cdk-drop-list-0', 'cdk-drop-list-1', 'cdk-drop-list-2']"
         class="example-list"
         (cdkDropListDropped)="drop($event)"
       >
-      <ng-container *ngIf="tasks.length > 0">
-        <div class="example-box" *ngFor="let item of tasks" cdkDrag>
+      <ng-container *ngIf="taskList().length > 0">
+        <div class="example-box" *ngFor="let item of taskList()" cdkDrag>
           <div class="content">
             <span>{{ item }}</span>
             <span>
               <i class="ti-pencil" data-bs-toggle="tooltip" data-bs-title="Edit"></i>
-              <i class="ti-close"></i>
+              <i class="ti-close" (click)="delete(taskList().indexOf(item))"></i>
             </span>
           </div>
         </div>

@@ -49,7 +49,7 @@
 }
 
 .example-box .content {
-    background-color: rgba(88, 91, 94, .15);
+    background-color: rgba(88, 91, 94, .2);
     padding: 7px;
     border-radius: 5px;
     margin: 2px 0px;
@@ -59,7 +59,7 @@
 }
 
 .example-box .content:hover {
-    background-color: rgba(88, 91, 94, .25);
+    background-color: rgba(88, 91, 94, .3);
 }
 
 span i {
