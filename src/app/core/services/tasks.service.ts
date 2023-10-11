@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 export class TasksService {
     
     // Tasks List
-    todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
-    progress = ['Skin care', 'Study', 'Work out'];
+    todo = ['Get to work', 'Pick up groceries', 'Go home', 'Study'];
+    progress = ['Skin care', 'Work out'];
     done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
     
     constructor() { }

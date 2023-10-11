@@ -1,27 +1,64 @@
 # AngularTaskBoard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+AngularTaskBoard is a task management application built with Angular. It allows users to create, update, and delete tasks on a board. The application provides a simple and intuitive interface for managing tasks efficiently.
 
-## Development server
+<img src="src/assets/images/angular-task-board.png" alt="angular-task-board" style="margin: 30px auto">
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Steps to Run the Application
 
-## Code scaffolding
+1. Make sure you have `Node.js` installed on your machine. You can download it from https://nodejs.org.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. Clone the repository to your local machine using the following command:
 
-## Build
+    ```$ 
+    git clone `https://github.com/naisireth/AngularTaskBoard.git`
+    ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Navigate to the project directory:
 
-## Running unit tests
+    ```$ 
+    cd AngularTaskBoard
+    ``` 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4. Install the dependencies by running the following command:
+   
+   ```$
+   npm install
+   ``` 
 
-## Running end-to-end tests
+5. Start the development server by running the command:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    ng serve
+        
+    ```$
+    This will compile the application and start a local development server. You can access the application in your browser at `http://localhost:4200/`. The application will automatically reload if you make any changes to the source files.
+    ``` 
 
-## Further help
+## Code Scaffolding
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+You can generate various components, directives, pipes, services, classes, guards, interfaces, enums, and modules using Angular CLI. Here are a few examples:
+
+* Generate a new component: `ng generate component component-name`
+* Generate a new directive: `ng generate directive directive-name`
+* Generate a new pipe: `ng generate pipe pipe-name`
+* Generate a new service: `ng generate service service-name`
+* Generate a new class: `ng generate class class-name`
+* Generate a new guard: `ng generate guard guard-name`
+* Generate a new interface: `ng generate interface interface-name`
+* Generate a new enum: `ng generate enum enum-name`
+* Generate a new module: `ng generate module module-name`
+
+## Code Scaffolding
+
+```$
+ng build
+```
+## Further Help
+
+If you need further help with the `Angular CLI`, you can use the following command:
+
+```$
+ng help
+```
+
+You can also refer to the [Angular CLI Overview and Command Reference](https://angular.io/cli) page for more information and detailed documentation.

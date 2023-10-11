@@ -117,7 +117,7 @@ span i {
     cursor: pointer;
 }
 
- .example-box span:active {
+.example-box span:active {
     cursor: grab;
 }
 

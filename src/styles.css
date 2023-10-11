@@ -1,26 +1,26 @@
 html, .bg {
-    background-color: #191919;
-    color: #D4D4D4;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+  background-color: #191919;
+  color: #D4D4D4;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
 }
 
 .title {
-    font-size: 1.9rem;
+  font-size: 1.9rem;
 }
 
 .form-control {
-    background: transparent !important;
-    color: #FFF !important;
-    border: none !important;
-    box-shadow: none !important; 
-  }
+  background: transparent !important;
+  color: #FFF !important;
+  border: none !important;
+  box-shadow: none !important; 
+}
   
-  .form-control:focus,
-  .form-control:active {
-    outline: none !important; 
-    box-shadow: none !important;
-    color: #FFF !important;
-  }
+.form-control:focus,
+.form-control:active {
+  outline: none !important; 
+  box-shadow: none !important;
+  color: #FFF !important;
+}

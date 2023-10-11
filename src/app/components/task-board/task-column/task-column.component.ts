@@ -1,5 +1,8 @@
+// Angular.
+import { AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { AfterContentChecked, AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
+
+// Services.
 import { TasksService } from 'src/app/core/services/tasks.service';
 
 @Component({
@@ -160,20 +163,6 @@ export class TaskColumnComponent implements AfterViewInit {
   editTask(index: number) {
     this.editingTaskIndex = index;
   }
-
-  // updateTask(newValue: any, index: number) {
-  //   const newTaskValue = newValue;
-  //   if (this.editingTaskIndex >= 0) {
-  //     if (index >= 0 && index < this.todoList.length) {
-  //       this.todoList[index] = newTaskValue;
-  //     } else if (index >= 0 && index < this.progressList.length) {
-  //       this.progressList[index] = newTaskValue;
-  //     } else if (index >= 0 && index < this.doneList.length) {
-  //       this.doneList[index] = newTaskValue;
-  //     }
-  //   }
-  //   this.cancelEdit();
-  // }
 
   updateTask(newValue: any, index: number) {
     const newTaskValue = newValue;
