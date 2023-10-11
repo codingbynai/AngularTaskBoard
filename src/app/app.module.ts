@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskBoardComponent } from './components/task-board/task-board.component';
 import { TaskColumnComponent } from './components/task-board/task-column/task-column.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TaskColumnComponent } from './components/task-board/task-column/task-co
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     CdkDropList, 
     NgFor, 

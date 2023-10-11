@@ -17,7 +17,6 @@ export class TaskBoardComponent implements OnInit {
   inProgressCount: number = 0;
   doneCount: number = 0;
 
-
   constructor(private tasksService : TasksService) {}
 
   ngOnInit(): void {

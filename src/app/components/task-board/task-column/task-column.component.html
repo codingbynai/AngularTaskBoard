@@ -2,9 +2,8 @@
   <div class="header">
     <div class="d-flex gap-2">
       <p [ngClass]="titleColor()" class="title">{{ title }}</p>
-      <span class="count" #countElement>{{ count }}</span>
+      <span class="count">{{ count }}</span>
     </div>
-    <p class="ti-plus fw-bold"></p>
   </div>
   <div class="tasks">
       <div
@@ -15,18 +14,24 @@
         (cdkDropListDropped)="drop($event)"
       >
       <ng-container *ngIf="taskList().length > 0">
-        <div class="example-box" *ngFor="let item of taskList()" cdkDrag>
-          <div class="content">
+        <div class="example-box" *ngFor="let item of taskList(); let i = index" cdkDrag>
+          <div class="content" *ngIf="editingTaskIndex !== i">
             <span>{{ item }}</span>
             <span>
-              <i class="ti-pencil" data-bs-toggle="tooltip" data-bs-title="Edit"></i>
+              <i class="ti-pencil" data-bs-toggle="tooltip" data-bs-title="Edit" (click)="editTask(i)"></i>
               <i class="ti-close" (click)="delete(taskList().indexOf(item))"></i>
             </span>
+          </div>
+          <div class="content" *ngIf="editingTaskIndex === i">
+            <input #editField class="form-control form-control-sm" [ngModel]="item" (keyup.enter)="updateTask((editField.value || ''), i)" (blur)="cancelEdit()">
           </div>
         </div>
       </ng-container>
       <div class="example-box example-placeholder" *ngIf="tasks.length === 0" cdkDragPlaceholder></div>
     </div>
-        <div class="task"><i class="ti-plus fw-bold"></i> New</div>
+    <div *ngIf="!showInput" class="task" (click)="addNewTask()"><i class="ti-plus fw-bold"></i> New</div>
+    <div *ngIf="showInput" class="task">
+      <input #inputField class="form-control form-control-sm" [(ngModel)]="newTask" (keyup.enter)="addNewTask()" (blur)="addNewTask()" placeholder="Enter task">
+    </div>
     </div>
 </section>

@@ -125,6 +125,10 @@ span i {
     font-size: .7rem;
 }
 
+input::placeholder {
+    color: rgba(88, 91, 94, 0.9);
+}
+
 .cdk-drag-preview {
     box-sizing: border-box;
     font-size: .9rem;

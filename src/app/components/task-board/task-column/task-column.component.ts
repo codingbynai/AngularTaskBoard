@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
+import { AfterContentChecked, AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
 import { TasksService } from 'src/app/core/services/tasks.service';
 
 @Component({
@@ -7,32 +7,32 @@ import { TasksService } from 'src/app/core/services/tasks.service';
   templateUrl: './task-column.component.html',
   styleUrls: ['./task-column.component.css']
 })
-export class TaskColumnComponent implements OnChanges  {
+export class TaskColumnComponent implements AfterViewInit {
 
   @Input() title: string = '';
   @Input() count: number = 0;
-  @ViewChild('countElement', { static: false }) countElement!: ElementRef;
+  @ViewChild('inputField') inputField!: ElementRef;
  
   todoList      : string[] = [];
   progressList  : string[] = [];
   doneList      : string[] = [];
   tasks         : string[] = [];
 
-  i     : number = 0;
-  //count : number = 0;
+  i                 : number = 0;
+  showInput         : boolean = false
+  newTask           : string = ''
+  editingTaskIndex  : number = -1;
 
-
-  constructor ( private tasksService: TasksService,
-                private changeDetectorRef: ChangeDetectorRef) {
+  constructor ( private tasksService: TasksService) {
     this.todoList      = this.tasksService.getTodoList();
     this.progressList  = this.tasksService.getProgressList();
     this.doneList      = this.tasksService.getDoneList();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    // if (changes['title']) {
-    //   this.updateCount();
-    // }
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.showInput = this.showInput;
+    });
   }
   
   getConnectedListIds(): string[] {
@@ -50,25 +50,9 @@ export class TaskColumnComponent implements OnChanges  {
         event.currentIndex
       );
       
-      this.tasksService.updateLists(
-        this.tasksService.getTodoList(),
-        this.tasksService.getProgressList(),
-        this.tasksService.getDoneList()
-      );
-  
-      
-      this.todoList = this.tasksService.getTodoList();
-      this.progressList = this.tasksService.getProgressList();
-      this.doneList = this.tasksService.getDoneList();
-      console.log(this.todoList);
-      console.log(this.progressList);
-      this.changeDetectorRef.detectChanges();
-
-      // this.updateCount();
     }
   }
   
-
   getListByContainerId(containerId: string): string[] {
     switch (containerId) {
       case 'cdk-drop-list-0':
@@ -81,27 +65,6 @@ export class TaskColumnComponent implements OnChanges  {
         return [];
     }
   }
-
-  // updateCount() {
-  //   switch (this.title) {
-  //     case 'To Do':
-  //       this.count = this.todoList.length;
-  //       break;
-  //     case 'In Progress':
-  //       this.count = this.progressList.length;
-  //       break;
-  //     case 'Done':
-  //       this.count = this.doneList.length;
-  //       break;
-  //     default:
-  //       this.count = 0;
-  //       break;
-  //   }
-    
-  //   if (this.countElement && this.countElement.nativeElement) {
-  //     this.countElement.nativeElement.textContent = this.count;
-  //   }
-  // }
   
   titleColor(): string {
     switch (this.title) {
@@ -145,6 +108,36 @@ export class TaskColumnComponent implements OnChanges  {
     }
   }
 
+  addNewTask() {
+    if (this.showInput) {
+      if (this.newTask.trim() !== '') {
+        switch (this.i) {
+          case 0:
+            this.todoList.push(this.newTask);
+            break;
+          case 1:
+            this.progressList.push(this.newTask);
+            break;
+          case 2:
+            this.doneList.push(this.newTask);
+            break;
+          default:
+            break;
+        }
+      }
+      this.newTask = '';
+    }
+    setTimeout(() => {
+      this.showInput = !this.showInput;
+      if (this.showInput) {
+        setTimeout(() => {
+          this.inputField.nativeElement.focus();
+          this.showInput = this.showInput;
+        });
+      }
+    });
+  }
+
   delete(index: number) {
     switch (this.title) {
       case 'To Do':
@@ -162,7 +155,28 @@ export class TaskColumnComponent implements OnChanges  {
       default:
         break;
     }
-  
-    // this.updateCount();
   }
+
+  editTask(index: number) {
+    this.editingTaskIndex = index;
+  }
+
+  updateTask(newValue: any, index: number) {
+    const newTaskValue = newValue;
+    if (this.editingTaskIndex >= 0) {
+      if (index >= 0 && index < this.todoList.length) {
+        this.todoList[index] = newTaskValue;
+      } else if (index >= 0 && index < this.progressList.length) {
+        this.progressList[index] = newTaskValue;
+      } else if (index >= 0 && index < this.doneList.length) {
+        this.doneList[index] = newTaskValue;
+      }
+    }
+    this.cancelEdit();
+  }
+
+  cancelEdit() {
+    this.editingTaskIndex = -1;
+  }
+
 }

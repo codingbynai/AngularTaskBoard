@@ -10,3 +10,17 @@ html, .bg {
 .title {
     font-size: 1.9rem;
 }
+
+.form-control {
+    background: transparent !important;
+    color: #FFF !important;
+    border: none !important;
+    box-shadow: none !important; 
+  }
+  
+  .form-control:focus,
+  .form-control:active {
+    outline: none !important; 
+    box-shadow: none !important;
+    color: #FFF !important;
+  }
