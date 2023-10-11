@@ -11,7 +11,7 @@ AngularTaskBoard is a task management application built with Angular. It allows 
 2. Clone the repository to your local machine using the following command:
 
     ```$ 
-    git clone `https://github.com/naisireth/AngularTaskBoard.git`
+    git clone https://github.com/naisireth/AngularTaskBoard.git
     ```
 
 3. Navigate to the project directory:
@@ -28,11 +28,12 @@ AngularTaskBoard is a task management application built with Angular. It allows 
 
 5. Start the development server by running the command:
 
-    ng serve
-        
     ```$
-    This will compile the application and start a local development server. You can access the application in your browser at `http://localhost:4200/`. The application will automatically reload if you make any changes to the source files.
-    ``` 
+    ng serve
+    ```
+
+    This will compile the application and start a local development server. You can access the application in your browser at [http://localhost:4200/](http://localhost:4200/). The application will automatically reload if you make any changes to the source files.
+
 
 ## Code Scaffolding
 
