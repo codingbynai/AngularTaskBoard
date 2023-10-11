@@ -57,4 +57,16 @@ export class TasksService {
       this.progress = progressList;
       this.done = doneList;
     }
+
+    updateTodoItem(index: number, newItem: string): void {
+      this.todo[index] = newItem;
+    }
+    
+    updateProgressItem(index: number, newItem: string): void {
+      this.progress[index] = newItem;
+    }
+    
+    updateDoneItem(index: number, newItem: string): void {
+      this.done[index] = newItem;
+    }
 }

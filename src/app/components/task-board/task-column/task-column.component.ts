@@ -161,15 +161,35 @@ export class TaskColumnComponent implements AfterViewInit {
     this.editingTaskIndex = index;
   }
 
+  // updateTask(newValue: any, index: number) {
+  //   const newTaskValue = newValue;
+  //   if (this.editingTaskIndex >= 0) {
+  //     if (index >= 0 && index < this.todoList.length) {
+  //       this.todoList[index] = newTaskValue;
+  //     } else if (index >= 0 && index < this.progressList.length) {
+  //       this.progressList[index] = newTaskValue;
+  //     } else if (index >= 0 && index < this.doneList.length) {
+  //       this.doneList[index] = newTaskValue;
+  //     }
+  //   }
+  //   this.cancelEdit();
+  // }
+
   updateTask(newValue: any, index: number) {
     const newTaskValue = newValue;
     if (this.editingTaskIndex >= 0) {
-      if (index >= 0 && index < this.todoList.length) {
-        this.todoList[index] = newTaskValue;
-      } else if (index >= 0 && index < this.progressList.length) {
-        this.progressList[index] = newTaskValue;
-      } else if (index >= 0 && index < this.doneList.length) {
-        this.doneList[index] = newTaskValue;
+      switch (this.title) {
+        case 'To Do':
+          this.tasksService.updateTodoItem(index, newTaskValue);
+          break;
+        case 'In Progress':
+          this.tasksService.updateProgressItem(index, newTaskValue);
+          break;
+        case 'Done':
+          this.tasksService.updateDoneItem(index, newTaskValue);
+          break;
+        default:
+          break;
       }
     }
     this.cancelEdit();

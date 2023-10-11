@@ -9,7 +9,7 @@
       <div
         cdkDropList
         [cdkDropListData]="taskList()"
-        [cdkDropListConnectedTo]="['cdk-drop-list-0', 'cdk-drop-list-1', 'cdk-drop-list-2']"
+        [cdkDropListConnectedTo]="getConnectedListIds()"
         class="example-list"
         (cdkDropListDropped)="drop($event)"
       >
